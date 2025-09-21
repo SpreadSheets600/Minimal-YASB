@@ -638,8 +638,9 @@
     color: var(--accent-red);
 }
 
-
+/* ======================================================================================== */
 /* Power Menu Buttons */
+/* ======================================================================================== */
 .power-menu-popup .button {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius);
@@ -695,6 +696,39 @@
 .power-menu-popup .button.signout .icon,
 .power-menu-popup .button.signout .label {
     color: var(--text-secondary);
+}
+
+/* ======================================================================================== */
+/* Systray Buttons */
+/* ======================================================================================== */
+.systray {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.systray .button {
+    border-radius: 4px;
+    padding: 2px 2px;
+    background-color: transparent;
+}
+
+.systray .button:hover,
+.systray .unpinned-visibility-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.systray .unpinned-visibility-btn {
+    height: 20px;
+    width: 16px;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+}
+
+.systray .unpinned-visibility-btn:hover {
+    border-radius: 4px;
 }
 
 /* ======================================================================================== */
