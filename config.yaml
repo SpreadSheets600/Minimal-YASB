@@ -26,7 +26,7 @@ bars:
       left: ["home", "wallpaper", "cpu", "memory", "disk", "media"]
       center: ["active_window"]
       right:
-        ["weather", "clock", "volume", "wifi", "notifications", "power_menu"]
+        ["systray", "weather", "clock", "volume", "wifi", "notifications", "power_menu"]
 widgets:
   pomodoro:
     type: "yasb.pomodoro.PomodoroWidget"
@@ -147,7 +147,7 @@ widgets:
     options:
       label: "<span>{icon}</span> {%I:%M:%S %p}"
       label_alt: "\uf017 {%d-%m-%y | %A}"
-      locale: ""
+      locale: "en_IN"
       update_interval: 1000
       timezones: []
       icons:
@@ -170,12 +170,11 @@ widgets:
       calendar:
         round_corners: true
         round_corners_type: "normal"
-        border_color: "system"
+        border_color: "None"
         alignment: "center"
         direction: "down"
-        show_holidays: false
-        show_week_numbers: true
-        country_code: "AR"
+        show_week_numbers: false
+        show_holidays: true
         holiday_color: "#FF6464"
       callbacks:
         on_left: "toggle_label"
@@ -256,6 +255,18 @@ widgets:
         sleep: ["\udb82\udd04", "Sleep"]
         lock: ["\uf023", "Lock"]
         cancel: ["\udb81\udf3a", "Cancel"]
+  systray:
+    type: "yasb.systray.SystrayWidget"
+    options:
+      class_name: "systray"
+      label_collapsed: "\uf47d"
+      label_expanded: "\uf460"
+      label_position: "right"
+      icon_size: 16
+      pin_click_modifier: "alt"
+      show_unpinned: false
+      show_unpinned_button: true
+      tooltip: true
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
