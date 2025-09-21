@@ -1,0 +1,819 @@
+/* ======================================================================================== */
+/* Root Variables */
+/* ======================================================================================== */
+:root {
+    --bg-primary: rgba(32, 32, 32, 0.99);
+    --bg-secondary: rgba(32, 32, 32, 0.99);
+    --bg-active: rgba(32, 32, 32, 0.99);
+    --bg-hover: rgb(32, 32, 32, 0.99);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --accent-white: #dadada;
+    --accent-blue: #0078d4;
+    --accent-purple: #8b5cf6;
+    --accent-green: #16a085;
+    --accent-orange: #f39c12;
+    --accent-red: #e74c3c;
+    --border-radius: 8px;
+    --blur-strength: 5px;
+    --elevation-1: 0 2px 10px rgba(0, 0, 0, 0.25);
+    --elevation-2: 0 6px 24px rgba(0, 0, 0, 0.32);
+    --ring: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+/* ======================================================================================== */
+/* Base Styles */
+/* ======================================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-primary);
+    font-family: "JetBrainsMonoNL NFP";
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* ======================================================================================== */
+/* Main Bar */
+/* ======================================================================================== */
+
+.yasb-bar {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--border-radius);
+    margin: 4px;
+    backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    -webkit-backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    box-shadow: var(--elevation-1);
+}
+
+/* ======================================================================================== */
+/* Widget Base */
+/* ======================================================================================== */
+
+.widget {
+    transition: all 0.2s ease;
+    align-items: center;
+    padding: 0 4px;
+    backdrop-filter: saturate(120%) blur(calc(var(--blur-strength) * 0.6));
+    -webkit-backdrop-filter: saturate(120%) blur(calc(var(--blur-strength) * 0.6));
+    box-shadow: var(--ring);
+}
+
+.widget .label {
+    font-weight: 500;
+    font-size: 12px;
+    padding: 0 4px;
+}
+
+.widget .icon {
+    transition: color 0.2s ease;
+    color: var(--accent-white);
+    margin-right: 6px;
+    font-size: 16px;
+}
+
+/* Subtle hover lift for all widgets without changing colors */
+.widget:hover {
+    transform: translateY(-1px);
+    background-color: var(--bg-secondary);
+}
+
+.widget:active {
+    transform: translateY(0);
+    filter: brightness(0.98);
+}
+
+/* ======================================================================================== */
+/* Container Sections */
+/* ======================================================================================== */
+
+.container-left,
+.container-center,
+.container-right {
+    align-items: center;
+    display: flex;
+}
+
+.container-left {
+    padding-left: 4px;
+}
+
+.container-right {
+    padding-right: 4px;
+}
+
+/* ======================================================================================== */
+/* Home Widget */
+/* ======================================================================================== */
+.home-menu {
+    background-color: var(--bg-primary);
+    backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    -webkit-backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    box-shadow: var(--elevation-2);
+}
+
+.home-menu .menu-item {
+    padding: 6px 48px 7px 16px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.home-menu .menu-item:hover {
+    background-color: var(--bg-hover);
+    color: #fff;
+}
+
+.home-menu .separator {
+    background-color: rgba(128, 130, 158, 0.3);
+    max-height: 1px;
+}
+
+/* ======================================================================================== */
+/* Wallpaper Widget */
+/* ======================================================================================== */
+
+.wallpapers-widget {
+    padding: 0 6px 0 6px;
+}
+
+.wallpapers-gallery-window {
+    background-color: var(--bg-primary);
+    border: 0;
+    margin: 0;
+    backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    -webkit-backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    box-shadow: var(--elevation-2);
+}
+
+.wallpapers-gallery-buttons {
+    background-color: var(--bg-secondary);
+    margin: 0 8px 8px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 8px 0;
+    color: white;
+    width: 600px;
+    box-shadow: var(--ring);
+}
+
+.wallpapers-gallery-buttons:hover {
+    background-color: var(--bg-hover);
+}
+
+.wallpapers-gallery-image {
+    border: 4px solid transparent;
+    border-radius: 10px;
+}
+
+.wallpapers-gallery-image:hover {
+    border: 4px solid var(--accent-white);
+}
+
+.wallpapers-gallery-image.focused {
+    border: 4px solid var(--accent-blue);
+}
+
+/* ======================================================================================== */
+/* CPU Widget */
+/* ======================================================================================== */
+
+.cpu-widget {
+    background: var(--bg-secondary);
+    margin-right: 2px;
+    box-shadow: var(--ring);
+}
+
+.cpu-widget .icon {
+    color: var(--accent-orange);
+}
+
+.cpu-widget .progress-circle {
+    animation: spin 1s linear infinite;
+    margin-right: 4px;
+}
+
+/* ======================================================================================== */
+/* Memory Widget */
+/* ======================================================================================== */
+
+.memory-widget {
+    background: var(--bg-secondary);
+    margin-right: 2px;
+    box-shadow: var(--ring);
+}
+
+.memory-widget .icon {
+    color: var(--accent-green);
+}
+
+.memory-widget .progress-circle {
+    animation: spin 1s linear infinite;
+    margin-right: 4px;
+}
+
+
+/* ======================================================================================== */
+/* Disk Widget */
+/* ======================================================================================== */
+
+.disk-widget {
+    background: var(--bg-secondary);
+    margin-right: 2px;
+    box-shadow: var(--ring);
+}
+
+.disk-widget .icon {
+    color: var(--accent-orange);
+}
+
+.disk-widget .progress-circle {
+    animation: spin 1s linear infinite;
+    margin-right: 4px;
+}
+
+
+/* ======================================================================================== */
+/* Media Widget */
+/* ======================================================================================== */
+
+.media-widget {
+    border-radius: var(--border-radius);
+    background: var(--bg-secondary);
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin-right: 6px;
+    padding: 0 6px;
+    box-shadow: var(--ring);
+}
+
+.media-widget .icon {
+    color: var(--accent-purple);
+}
+
+.media-widget .btn {
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    background: transparent;
+    border-radius: 4px;
+    margin: 0 2px;
+    border: none;
+    padding: 2px;
+}
+
+.media-widget .btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+/* ======================================================================================== */
+/* Media Popup */
+/* ======================================================================================== */
+
+.media-menu {
+    background: var(--bg-primary);
+    min-width: 460px;
+    max-width: 560px;
+    padding: 12px;
+    backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    -webkit-backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    box-shadow: var(--elevation-2);
+}
+
+/* ======================================================================================== */
+/* Album Art */
+/* ======================================================================================== */
+
+.media-menu .album-art {
+    border: 1px solid var(--text-secondary);
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 0 0 128px;
+    display: flex;
+    height: 128px;
+    margin: 6px;
+    width: 128px;
+}
+
+/* ======================================================================================== */
+/* Meta Info */
+/* ======================================================================================== */
+
+.media-menu .meta {
+    flex-direction: column;
+    flex: 1 1 auto;
+    display: flex;
+    min-width: 0;
+    gap: 6px;
+}
+
+.media-menu .title {
+    color: var(--text-primary);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 8px;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.media-menu .artist {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 8px;
+    color: #9aa0b4;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.media-menu .source {
+    background-color: var(--bg-active);
+    display: inline-block;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* ======================================================================================== */
+/* Controls Row */
+/* ======================================================================================== */
+
+.media-menu .btn {
+    font-family: "Segoe Fluent Icons";
+    color: var(--text-primary);
+    margin: 0px 8px 0 8px;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.media-menu .btn.prev {
+    margin-left: 10px;
+}
+
+.media-menu .btn:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.media-menu .btn.play {
+    font-size: 20px;
+}
+
+.media-menu .btn.disabled,
+.media-menu .btn.disabled:hover {
+    background-color: transparent;
+    color: #4e525c;
+}
+
+.media-menu .playback-time {
+    min-width: 100px;
+    margin-top: 10px;
+    color: #7f849c;
+    font-size: 14px;
+}
+
+.media-menu .app-volume-container {
+    border-radius: 16px;
+    margin-left: 10px;
+    padding: 6px 6px;
+}
+
+.media-menu .app-volume-container .mute-button,
+.media-menu .app-volume-container .unmute-button {
+    font-family: "Segoe Fluent Icons";
+    color: var(--text-primary);
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+.media-menu .app-volume-container .unmute-button {
+    color: var(--text-secondary);
+}
+
+/* ======================================================================================== */
+/* Active Window Widget */
+/* ======================================================================================== */
+
+.active-window-widget {
+    border-radius: var(--border-radius);
+    background: var(--bg-secondary);
+    box-shadow: var(--ring);
+}
+
+.active-window-widget .widget-container .label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.active-window-widget .widget-container .icon {
+    margin: 0 0 0 0;
+}
+
+/* ======================================================================================== */
+/* Weather Widget */
+/* ======================================================================================== */
+
+.weather-widget {
+    background: var(--bg-secondary);
+    margin-right: 2px;
+    box-shadow: var(--ring);
+}
+
+.weather-widget .icon {
+    color: var(--accent-blue);
+    font-size: 16px;
+}
+
+.weather-card {
+    background-color: var(--bg-primary);
+    backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    -webkit-backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    box-shadow: var(--elevation-1);
+}
+
+.weather-card-today {
+    border: 1px solid #282936;
+    border-radius: 8px;
+}
+
+.weather-card-today .label {
+    padding-bottom: 4px;
+    padding-top: 4px;
+    font-size: 12px;
+}
+
+.weather-card-today .label.location {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.weather-card-today .label.alert {
+    border: 1px solid rgba(247, 209, 42, 0.1);
+    color: rgba(196, 181, 162, 0.85);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px 0;
+}
+
+.weather-card-day {
+    border: 1px solid #45475a;
+    border-radius: 8px;
+}
+
+.weather-card-day.active {
+    border: 1px solid rgba(50, 50, 75, 1);
+    background-color: var(--bg-hover);
+}
+
+.weather-card-day:hover {
+    background-color: var(--bg-hover);
+}
+
+.weather-card-day .label {
+    font-size: 12px;
+}
+
+.weather-card .hourly-container {
+    border: 1px solid #282936;
+    background-color: #5679bbb2;
+    border-radius: 8px;
+    min-height: 150px;
+}
+
+.weather-card .hourly-data {
+    background-color: #FAE93F;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* ======================================================================================== */
+/* Clock Widget */
+/* ======================================================================================== */
+.clock-widget {
+    background: var(--bg-secondary);
+    margin-right: 2px;
+    box-shadow: var(--ring);
+}
+
+.clock-widget .icon {
+    color: var(--accent-blue);
+}
+
+/* ======================================================================================== */
+/* Calendar Widget */
+/* ======================================================================================== */
+.calendar {
+    background-color: var(--bg-primary);
+    backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    -webkit-backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    box-shadow: var(--elevation-2);
+}
+
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calendar .calendar-table::item:selected {
+    background-color: #0099ff5b;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.calendar .day-label {
+    margin-top: 20px;
+}
+
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label,
+.calendar .week-label,
+.calendar .holiday-label {
+    font-weight: 700;
+    min-width: 180px;
+    max-width: 180px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.calendar .week-label,
+.calendar .holiday-label {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.calendar .holiday-label {
+    font-weight: 700;
+}
+
+.calendar .month-label {
+    font-weight: normal;
+}
+
+.calendar .date-label {
+    margin-top: -20px;
+    font-weight: 900;
+    font-size: 88px;
+}
+
+/* ======================================================================================== */
+/* Volume Widget */
+/* ======================================================================================== */
+.volume-widget {
+    background: var(--bg-secondary);
+    margin-right: 2px;
+    box-shadow: var(--ring);
+}
+
+.volume-widget .icon {
+    color: var(--accent-green);
+}
+
+.volume-slider {
+    border: none;
+}
+
+.audio-menu {
+    background-color: var(--bg-primary);
+    backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    -webkit-backdrop-filter: saturate(120%) blur(var(--blur-strength));
+    box-shadow: var(--elevation-2);
+}
+
+.audio-container .device {
+    background-color: transparent;
+    padding: 6px 8px 6px 4px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin: 2px 0;
+    border: none;
+}
+
+.audio-container .device.selected {
+    background-color: rgba(255, 255, 255, 0.085);
+}
+
+.audio-container .device:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ======================================================================================== */
+/* WiFi Widget */
+/* ======================================================================================== */
+.wifi-widget {
+    background: var(--bg-secondary);
+    margin-right: 2px;
+    box-shadow: var(--ring);
+}
+
+.wifi-widget .icon {
+    color: var(--accent-blue);
+}
+
+/* ======================================================================================== */
+/* Power Menu Widget */
+/* ======================================================================================== */
+.power-menu-widget {
+    background: var(--bg-secondary);
+    margin-right: 2px;
+    box-shadow: var(--ring);
+}
+
+.power-menu-widget .icon {
+    color: var(--accent-red);
+}
+
+
+/* Power Menu Buttons */
+.power-menu-popup .button {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    display: flex;
+    width: 120px;
+    height: 80px;
+    margin: 8px;
+    background-color: var(--bg-secondary);
+    box-shadow: var(--ring);
+}
+
+.power-menu-popup .button:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--bg-hover);
+}
+
+.power-menu-popup .button .icon {
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.power-menu-popup .button .label {
+    text-align: center;
+    font-size: 11px;
+}
+
+.power-menu-popup .button.shutdown .icon,
+.power-menu-popup .button.shutdown .label {
+    color: var(--accent-red);
+}
+
+.power-menu-popup .button.restart .icon,
+.power-menu-popup .button.restart .label {
+    color: var(--accent-orange);
+}
+
+.power-menu-popup .button.sleep .icon,
+.power-menu-popup .button.sleep .label {
+    color: var(--accent-blue);
+}
+
+.power-menu-popup .button.lock .icon,
+.power-menu-popup .button.lock .label {
+    color: var(--accent-purple);
+}
+
+.power-menu-popup .button.signout .icon,
+.power-menu-popup .button.signout .label {
+    color: var(--text-secondary);
+}
+
+/* ======================================================================================== */
+/* Notifications Widget */
+/* ======================================================================================== */
+.notifications-widget {
+    border-radius: var(--border-radius);
+    background: var(--bg-secondary);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    margin-right: 4px;
+    box-shadow: var(--ring);
+}
+
+.notifications-widget .icon {
+    color: var(--accent-blue);
+}
+
+/* ======================================================================================== */
+/* Scrollbars */
+/* ======================================================================================== */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Focus ring for keyboard navigation */
+:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+}
+
+/* ======================================================================================== */
+/* Responsive Adjustments */
+/* ======================================================================================== */
+@media (max-width: 1920px) {
+    .widget {
+        padding: 0 6px;
+    }
+
+    .widget .label {
+        font-size: 11px;
+    }
+}
+
+/* High-DPI polish */
+@media (min-width: 2200px) {
+    .widget .label {
+        font-size: 12px;
+    }
+
+    .widget .icon {
+        font-size: 18px;
+    }
+}
+
+/* ======================================================================================== */
+/* Animation Classes */
+/* ======================================================================================== */
+.fade-in {
+    animation: fadeIn 0.2s ease;
+}
+
+.fade-out {
+    animation: fadeOut 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+}
+
+/* Generic spin used by progress circles */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
