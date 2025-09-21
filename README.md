@@ -1,6 +1,6 @@
 # Simple Minimal YASB Theme
 
-## Widjet List
+## Widget List
 - Home
 - Wallpaper
 - Cpu
